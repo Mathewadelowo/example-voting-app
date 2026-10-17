@@ -17,14 +17,13 @@ on:
 
 jobs:
   call-test:
-      name: Smoke Test and Integration Test
-      runs-on: ubuntu-latest 
-      steps:
-        - name: Run Result Integration Tests
-          run: |
-            docker compose -f result/docker-compose.test.yml up --build --abort-on-container-exit --exit-code-from sut
-
-
+    name: Run Integration Test
+    runs-on: ubuntu-latest
+    steps:
       
-      
-      
+     - name: Checkout code
+       uses: actions/checkout@v4
+        
+     - name: Run Result Integration Tests
+       run: |
+         docker compose -f result/docker-compose.test.yml up --build --abort-on-container-exit --exit-code-from su
