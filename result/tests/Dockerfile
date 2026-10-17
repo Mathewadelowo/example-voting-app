@@ -7,6 +7,6 @@ RUN apt-get update -qq && apt-get install -qy \
     libfontconfig \
     --no-install-recommends
 RUN yarn global add phantomjs-prebuilt
-ADD . /app
+COPY . /app
 WORKDIR /app
 CMD ["/app/tests.sh"]
