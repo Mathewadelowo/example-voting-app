@@ -15,7 +15,6 @@
     "method-override": "^3.0.0",
     "pg": "^8.8.0",
     "socket.io": "^4.7.2",
-    "stoppable": "^1.1.0",
-    "sigstore": "^4.1.1"
+    "stoppable": "^1.1.0"
   }
 }

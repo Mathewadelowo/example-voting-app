@@ -4,3 +4,19 @@ bin/
 obj/
 .vs/
 node_modules/
+.trivyignore
+
+# Ignore all Terraform internal directories and binaries anywhere in the project
+**/.terraform/
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+crash.log
+
+# Environment variables and secrets
+.env
+.env.local
+.env.*.local
+*.tfvars
+*.tfvars.json
