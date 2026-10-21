@@ -75,3 +75,12 @@ jobs:
       - name: Push image
         if: github.event_name == 'push'
         run: docker push ${{env.IMAGE}}
+
+  deploy-to-eks:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: build-and-push
+    uses: ./.github/workflows/deploy-to-eks.yaml
+    with:
+      service: vote
+      image_tag: ${{ github.sha }}
+    secrets: inherit
