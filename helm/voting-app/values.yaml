@@ -1,7 +1,7 @@
 vote:
   image:
     repository: devsmaus/voting-app-vote
-    tag: latests
+    tag: latest
   replicaCount: 1
 
 result:
