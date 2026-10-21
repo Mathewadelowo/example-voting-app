@@ -79,27 +79,20 @@ jobs:
               IMAGE_REPOSITORY="${DOCKER_USERNAME}/voting-app-worker"
               DEPLOYMENT_NAME="worker"
               ;;
-
-            test-bad-release)
-            SERVICE="vote"
-            IMAGE_REPOSITORY="${DOCKER_USERNAME}/voting-app-vote"
-            DEPLOYMENT_NAME="votes"
-            IMAGE_TAG="bad-tag-999999"
-            ;;
             *)
               echo "Unsupported service: $SERVICE"
               exit 1
               ;;
           esac
 
-          helm upgrade voting-app ./helm/voting-app \
-              --namespace voting-app \
-              --reuse-values \
-              --set-string vote.image.tag=bad-tag-999999 \
-              --wait \
-              --timeout 2m      
-
-         
+          helm upgrade --install voting-app ./helm/voting-app \
+            --namespace voting-app \
+            --create-namespace \
+            --reuse-values \
+            --set "${SERVICE}.image.repository=${IMAGE_REPOSITORY}" \
+            --set-string "${SERVICE}.image.tag=${IMAGE_TAG}" \
+            --wait \
+            --timeout 5m      
 
           kubectl rollout status "deployment/${DEPLOYMENT_NAME}" \
             --namespace voting-app \
