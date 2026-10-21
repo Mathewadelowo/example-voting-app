@@ -79,6 +79,13 @@ jobs:
               IMAGE_REPOSITORY="${DOCKER_USERNAME}/voting-app-worker"
               DEPLOYMENT_NAME="worker"
               ;;
+
+            test-bad-release)
+            SERVICE="vote"
+            IMAGE_REPOSITORY="${DOCKER_USERNAME}/voting-app-vote"
+            DEPLOYMENT_NAME="votes"
+            IMAGE_TAG="bad-tag-999999"
+            ;;
             *)
               echo "Unsupported service: $SERVICE"
               exit 1
