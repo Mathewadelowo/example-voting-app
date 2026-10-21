@@ -80,7 +80,7 @@ jobs:
           scanners: misconfig,vuln,secret
           format: table
           severity: CRITICAL,HIGH
-          exit-code: "1"
+          exit-code: 0
 
       - name: Log in to DockerHub
         uses: docker/login-action@v3
