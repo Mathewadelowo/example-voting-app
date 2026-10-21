@@ -1,4 +1,27 @@
+vote:
+  image:
+    repository: devsmaus/voting-app-vote
+    tag: {{ .github.sha }}
+  replicaCount: 1
+
 result:
   image:
     repository: devsmaus/voting-app-result
-    tag: latest
+    tag: {{ .github.sha }}
+  replicaCount: 1
+
+worker:
+  image:
+    repository: devsmaus/voting-app-worker
+    tag: {{ .github.sha }}
+  replicaCount: 1
+
+redis:
+  image:
+    repository: redis
+    tag: "alpine"
+
+db:
+  image:
+    repository: postgres
+    tag: "15-alpine"
