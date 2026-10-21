@@ -76,8 +76,8 @@ jobs:
               DEPLOYMENT_NAME="result"
               ;;
             worker)
-                IMAGE_REPOSITORY="${DOCKER_USERNAME}/voting-app-worker"
-                DEPLOYMENT_NAME="worker"
+              IMAGE_REPOSITORY="${DOCKER_USERNAME}/voting-app-worker"
+              DEPLOYMENT_NAME="worker"
               ;;
             *)
               echo "Unsupported service: $SERVICE"
@@ -90,7 +90,7 @@ jobs:
             --create-namespace \
             --reuse-values \
             --set "${SERVICE}.image.repository=${IMAGE_REPOSITORY}" \
-            --set-string "${SERVICE}.image.tag=${{ github.sha }}" \
+            --set-string "${SERVICE}.image.tag=${IMAGE_TAG}" \
             --wait \
             --timeout 5m
 

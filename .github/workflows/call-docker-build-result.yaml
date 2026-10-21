@@ -8,6 +8,7 @@ on:
       - "result/**"
       - "helm/**"
       - ".github/workflows/call-docker-build-result.yaml"
+      - ".github/workflows/deploy-to-eks.yaml"
   pull_request:
     branches:
       - main
