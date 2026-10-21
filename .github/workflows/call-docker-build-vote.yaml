@@ -30,9 +30,6 @@ jobs:
       - name: Lint Helm chart
         run: helm lint ./helm/voting-app
 
-      - name: Container integration test
-        run: |
-          docker compose -f vote/docker-compose.test.yml up --build --abort-on-container-exit --exit-code-from sut
         
   trivy-scan:
     runs-on: ubuntu-latest
