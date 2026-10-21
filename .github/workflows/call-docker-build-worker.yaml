@@ -81,6 +81,6 @@ jobs:
     needs: build-and-push
     uses: ./.github/workflows/deploy-to-eks.yaml
     with:
-      service: vote
+      service: worker
       image_tag: ${{ github.sha }}
     secrets: inherit

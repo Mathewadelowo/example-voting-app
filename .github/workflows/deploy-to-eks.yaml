@@ -90,7 +90,7 @@ jobs:
             --create-namespace \
             --reuse-values \
             --set "${SERVICE}.image.repository=${IMAGE_REPOSITORY}" \
-            --set-string "${SERVICE}.image.tag=${IMAGE_TAG}" \
+            --set-string "${SERVICE}.image.tag=${{ github.sha }}" \
             --wait \
             --timeout 5m
 
