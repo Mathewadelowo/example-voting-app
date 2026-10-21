@@ -56,8 +56,7 @@ Architecture Flow Diagram:
      ┌─────────────┐                      └─────────────┘
      │ Result (UI) │ ───(Reads Tallies)─────────┘
      └─────────────┘
-
-
+```
 
 ## 4. Infrastructure with Terraform
 
@@ -189,8 +188,6 @@ helm rollback voting-app <KNOWN_GOOD_REVISION> \\
 
 A rollback creates a new Helm revision; it does not erase the failed revisions. Consider the recovery complete only when the rollout succeeds, all expected replicas are ready, pods are healthy, and the Vote and Result pages work. Run failure tests only in a test environment because they can interrupt the Vote service.
 
-
-**Recommended demo evidence:** a successful CI/CD run, Terraform output, `kubectl get nodes`, final deployment/pod/service status, Helm history showing the failed release and rollback, Trivy results, and screenshots of the working Vote and Result pages.
 
 ## 9. Conclusion
 
