@@ -69,7 +69,7 @@ jobs:
           case "$SERVICE" in
             vote)
               IMAGE_REPOSITORY="${DOCKER_USERNAME}/voting-app-vote"
-              DEPLOYMENT_NAME="vote"
+              DEPLOYMENT_NAME="votes"
               ;;
             result)
               IMAGE_REPOSITORY="${DOCKER_USERNAME}/voting-app-result"
