@@ -5,7 +5,7 @@ metadata:
     app: db
   name: db
 spec:
-  replicas: 1
+  replicas: {{ .Values.db.replicaCount }}
   selector:
     matchLabels:
       app: db
@@ -15,8 +15,9 @@ spec:
         app: db
     spec:
       containers:
-      - image: postgres:15-alpine
+      - image: "{{ .Values.db.image.repository }}:{{ .Values.db.image.tag }}"
         name: postgres
+        imagePullPolicy: IfNotPresent
         env:
         - name: POSTGRES_USER
           value: postgres

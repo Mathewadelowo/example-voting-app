@@ -3,9 +3,9 @@ kind: Deployment
 metadata:
   labels:
     app: vote
-  name: vote
+  name: votes
 spec:
-  replicas: 1
+  replicas: {{ .Values.vote.replicaCount }}
   selector:
     matchLabels:
       app: vote
@@ -15,8 +15,9 @@ spec:
         app: vote
     spec:
       containers:
-      - image: dockersamples/examplevotingapp_vote
+      - image: "{{ .Values.vote.image.repository }}:{{ .Values.vote.image.tag }}"
         name: vote
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
           name: vote

@@ -7,7 +7,7 @@ vote:
 result:
   image:
     repository: devsmaus/voting-app-result
-    tag: {{ .github.sha }}
+    tag: latest
   replicaCount: 1
 
 worker:
