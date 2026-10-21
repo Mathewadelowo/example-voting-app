@@ -52,7 +52,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: trivy-scan
     env:
-        IMAGE: ${{ secrets.DOCKER_USERNAME }}/examplevotingapp_vote:${{ github.sha }}
+        IMAGE: ${{ secrets.DOCKER_USERNAME }}/voting-app-vote:${{ github.sha }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -67,7 +67,8 @@ jobs:
         with:
           context: ./vote
           file: ./vote/Dockerfile
-          push: true
+          load: true
+          push: false
           tags: ${{ env.IMAGE }}
 
       - name: Trivy scan built image
